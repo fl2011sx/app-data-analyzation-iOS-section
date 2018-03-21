@@ -10,7 +10,7 @@ import UIKit
 
 class App1ViewController: UIViewController {
     
-    let phpFile = "http://192.168.1.188/tpappCon.php"
+    let phpFile = "http://192.168.1.188/tpappCon/tpappCon.php"
 
     override func viewDidLoad() {
         super.viewDidLoad()
