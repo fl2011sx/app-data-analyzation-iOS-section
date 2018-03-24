@@ -8,4 +8,5 @@
 
 import Foundation
 
-let ServerURLAdress = "http://192.168.1.188/tpappCon/tpappCon.php"
+let dataForServer = NSDictionary(contentsOfFile: Bundle.main.path(forResource: "DataForServer", ofType: "plist") ?? "")
+

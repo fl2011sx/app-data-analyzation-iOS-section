@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7529624520635C8800AE6F24 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529624420635C8800AE6F24 /* Global.swift */; };
+		756F504B20662F8000867148 /* DataForServer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 756F504A20662F8000867148 /* DataForServer.plist */; };
 		75EC7BAC205CF61900325187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC7BAB205CF61900325187 /* AppDelegate.swift */; };
 		75EC7BB3205CF61900325187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EC7BB2205CF61900325187 /* Assets.xcassets */; };
 		75EC7BB6205CF61900325187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EC7BB4205CF61900325187 /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		7529624420635C8800AE6F24 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		756F504A20662F8000867148 /* DataForServer.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DataForServer.plist; sourceTree = "<group>"; };
 		75EC7BA8205CF61900325187 /* tpapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tpapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EC7BAB205CF61900325187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75EC7BB2205CF61900325187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		756F504920662F6900867148 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				756F504A20662F8000867148 /* DataForServer.plist */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		75EC7B9F205CF61800325187 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		75EC7BAA205CF61900325187 /* tpapp */ = {
 			isa = PBXGroup;
 			children = (
+				756F504920662F6900867148 /* Global */,
 				7529624420635C8800AE6F24 /* Global.swift */,
 				75EC7BAB205CF61900325187 /* AppDelegate.swift */,
 				75EC7BD9205CF69C00325187 /* App1ViewController.swift */,
@@ -241,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				756F504B20662F8000867148 /* DataForServer.plist in Resources */,
 				75EC7BDC205CF69C00325187 /* App1ViewController.xib in Resources */,
 				75EC7BB6205CF61900325187 /* LaunchScreen.storyboard in Resources */,
 				75EC7BB3205CF61900325187 /* Assets.xcassets in Resources */,

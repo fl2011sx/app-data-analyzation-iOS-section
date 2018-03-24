@@ -10,7 +10,7 @@ import UIKit
 
 class App1ViewController: UIViewController {
     
-    let phpFile = ServerURLAdress
+    let phpFile = dataForServer?["ServerURL"] as? String ?? ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,12 @@ class App1ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     
     func getCount(appid: Int, afterGetData: @escaping (Int) -> () = {(count) in}) {
+        print(phpFile)
+        if phpFile == "" {return}
         let url = URL(string: phpFile + "?command=countOperationForApp&appid=\(appid)")!
-       let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if data == nil {return}
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as String?
         // print(str!) // debug
             let count = Int(str!)
@@ -57,8 +61,10 @@ class App1ViewController: UIViewController {
     
     func doCounting(appid: Int) {
         let time = NSDate().timeIntervalSince1970
+        if phpFile == "" {return}
         let url = URL(string: phpFile + "?command=addOperation&operatingtime=\(time)&userid=1&appid=\(appid)")!
         let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if data == nil {return}
             print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String)
         }
         task.resume()
