@@ -26,6 +26,9 @@ class MainViewController: UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = vc
     }
     
+    @IBAction func DebugTestBtnClick(_ sender: UIButton) {
+        
+    }
     /*
     // MARK: - Navigation
 

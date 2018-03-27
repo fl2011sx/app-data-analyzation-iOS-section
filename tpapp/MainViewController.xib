@@ -21,11 +21,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ots-Kf-r6Z">
-                    <rect key="frame" x="23" y="83" width="46" height="30"/>
+                    <rect key="frame" x="29" y="83" width="35" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="App1"/>
                     <connections>
                         <action selector="App1BtnClicked:" destination="-1" eventType="touchUpInside" id="5pl-5W-Wy2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scl-0H-x5a">
+                    <rect key="frame" x="16" y="194" width="75" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="DebugTest"/>
+                    <connections>
+                        <action selector="DebugTestBtnClick:" destination="-1" eventType="touchUpInside" id="QdC-xw-Nam"/>
                     </connections>
                 </button>
             </subviews>

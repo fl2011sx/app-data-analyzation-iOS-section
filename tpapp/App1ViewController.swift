@@ -36,11 +36,17 @@ class App1ViewController: UIViewController {
         }
     }
     
-    @objc func changeCountLabel(str: String) {
-        countLabel.text = str;
+    @IBAction func registBtnClick(_ sender: UIButton) {
+        getProperties {
+    
+        }
     }
     
-    @IBOutlet weak var countLabel: UILabel!
+    @objc func changeCountLabel(str: String) {
+        countLabel?.text = str;
+    }
+    
+    @IBOutlet var countLabel: UILabel?
     
     func getCount(appid: Int, afterGetData: @escaping (Int) -> () = {(count) in}) {
         print(phpFile)
@@ -71,15 +77,22 @@ class App1ViewController: UIViewController {
     }
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func getProperties(afterGetData: @escaping () -> () = {}) {
+        if phpFile == "" {return}
+        let url = URL(string: phpFile + "?command=getUserProperties")!
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if data == nil {return}
+            let str = String(data: data!, encoding: String.Encoding.utf8)
+            self.performSelector(onMainThread: #selector(self.changeViewToRegistUserView(tableData:)), with: str, waitUntilDone: true)
+        }.resume()
     }
-    */
-
+    
+    @objc func changeViewToRegistUserView(tableData str: String?) {
+        let viewController = RegistUserViewController(nibName: "RegistUserViewController", bundle: Bundle.main, tableData: str ?? "")
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
+    @IBAction func debugTestBtnClick(_ sender: UIButton) {
+        changeViewToRegistUserView(tableData: "")
+    }
+    
 }
