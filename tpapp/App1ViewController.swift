@@ -17,10 +17,6 @@ class App1ViewController: UIViewController {
         getCountBtnClick(nil)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     @IBAction func BackBtnClicked(_ sender: UIButton) {
         let vc = MainViewController(nibName: "MainViewController", bundle: Bundle.main)
         UIApplication.shared.keyWindow?.rootViewController = vc
@@ -56,7 +52,6 @@ class App1ViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
             if data == nil {return}
             let str = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as String?
-        // print(str!) // debug
             let count = Int(str!)
             if count != nil {
                 afterGetData(count!)
@@ -69,10 +64,7 @@ class App1ViewController: UIViewController {
         let time = NSDate().timeIntervalSince1970
         if phpFile == "" {return}
         let url = URL(string: phpFile + "?command=addOperation&operatingtime=\(time)&userid=1&appid=\(appid)")!
-        let task = URLSession.shared.dataTask(with: url) { (data, res, err) in
-            if data == nil {return}
-            print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String)
-        }
+        let task = URLSession.shared.dataTask(with: url, completionHandler: defaultCompleteHandler)
         task.resume()
     }
     
@@ -89,6 +81,17 @@ class App1ViewController: UIViewController {
     
     @objc func changeViewToRegistUserView(tableData str: String?) {
         let viewController = RegistUserViewController(nibName: "RegistUserViewController", bundle: Bundle.main, tableData: str ?? "")
+        viewController.afterSubmit = { (value) in
+            let username = value["username"]!
+            if self.phpFile == "" {return}
+            let url = URL(string: self.phpFile + "?command=addUser&username=" + username)!
+            URLSession.shared.dataTask(with: url, completionHandler: defaultCompleteHandler).resume()
+            for (pro, val) in value {
+                if pro == "username" {continue}
+                let url2 = URL(string: self.phpFile + "?command=addUserPropertyValue&" + pro + "=" + val)!
+                URLSession.shared.dataTask(with: url2, completionHandler: defaultCompleteHandler).resume()
+            }
+        }
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
     @IBAction func debugTestBtnClick(_ sender: UIButton) {
