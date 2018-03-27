@@ -12,6 +12,7 @@ class RegistUserViewController: UIViewController, UITableViewDelegate, UITableVi
     
     var tableData: String // 用于注册用户的属性信息（封装在JSON中）
     var properties: [String]?
+    var values: [String : String]?
     
     init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?, tableData: String = "") {
         self.tableData = tableData
@@ -22,6 +23,7 @@ class RegistUserViewController: UIViewController, UITableViewDelegate, UITableVi
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    @IBOutlet weak var tableView: UITableView!
     
     private func explanDataToProperties() {
         struct Properties: Codable {
@@ -35,7 +37,7 @@ class RegistUserViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        (view as! UITableView).register(UINib(nibName: "RegistTableCellTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "RegistTableCell")
+        tableView.register(UINib(nibName: "RegistTableCellTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "RegistTableCell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,18 +51,16 @@ class RegistUserViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = (view as! UITableView).dequeueReusableCell(withIdentifier: "RegistTableCell", for: indexPath) as! RegistTableCellTableViewCell
-        cell.TitleLabel.text = properties?[indexPath.row] ?? "unknown"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RegistTableCell", for: indexPath) as! RegistTableCellTableViewCell
+        let pro = properties?[indexPath.row] ?? "unknown"
+        cell.TitleLabel.text = pro
+        cell.ValueLabel.text = values?[pro] ?? "please complete"
         return cell
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func SubmitBtnClick(_ sender: UIButton) {
+        
+        
     }
-    */
-
+    
 }

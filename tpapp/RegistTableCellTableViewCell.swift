@@ -11,7 +11,8 @@ import UIKit
 class RegistTableCellTableViewCell: UITableViewCell {
 
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBOutlet weak var enterTextFeild: UITextField!
+    @IBOutlet weak var ValueLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

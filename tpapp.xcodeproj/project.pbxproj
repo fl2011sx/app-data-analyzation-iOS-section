@@ -12,6 +12,8 @@
 		7555EDBB206A01BB005FC41A /* RegistUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7555EDB9206A01BB005FC41A /* RegistUserViewController.xib */; };
 		7555EDBE206A0DA3005FC41A /* RegistTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555EDBC206A0DA3005FC41A /* RegistTableCellTableViewCell.swift */; };
 		7555EDBF206A0DA3005FC41A /* RegistTableCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7555EDBD206A0DA3005FC41A /* RegistTableCellTableViewCell.xib */; };
+		7555EDC2206A1FA9005FC41A /* RegistPropertiesCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555EDC0206A1FA9005FC41A /* RegistPropertiesCompleteViewController.swift */; };
+		7555EDC3206A1FA9005FC41A /* RegistPropertiesCompleteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7555EDC1206A1FA9005FC41A /* RegistPropertiesCompleteViewController.xib */; };
 		756F504B20662F8000867148 /* DataForServer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 756F504A20662F8000867148 /* DataForServer.plist */; };
 		75EC7BAC205CF61900325187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC7BAB205CF61900325187 /* AppDelegate.swift */; };
 		75EC7BB3205CF61900325187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75EC7BB2205CF61900325187 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		7555EDB9206A01BB005FC41A /* RegistUserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistUserViewController.xib; sourceTree = "<group>"; };
 		7555EDBC206A0DA3005FC41A /* RegistTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistTableCellTableViewCell.swift; sourceTree = "<group>"; };
 		7555EDBD206A0DA3005FC41A /* RegistTableCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistTableCellTableViewCell.xib; sourceTree = "<group>"; };
+		7555EDC0206A1FA9005FC41A /* RegistPropertiesCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistPropertiesCompleteViewController.swift; sourceTree = "<group>"; };
+		7555EDC1206A1FA9005FC41A /* RegistPropertiesCompleteViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistPropertiesCompleteViewController.xib; sourceTree = "<group>"; };
 		756F504A20662F8000867148 /* DataForServer.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DataForServer.plist; sourceTree = "<group>"; };
 		75EC7BA8205CF61900325187 /* tpapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tpapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EC7BAB205CF61900325187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				7555EDB9206A01BB005FC41A /* RegistUserViewController.xib */,
 				7555EDBC206A0DA3005FC41A /* RegistTableCellTableViewCell.swift */,
 				7555EDBD206A0DA3005FC41A /* RegistTableCellTableViewCell.xib */,
+				7555EDC0206A1FA9005FC41A /* RegistPropertiesCompleteViewController.swift */,
+				7555EDC1206A1FA9005FC41A /* RegistPropertiesCompleteViewController.xib */,
 				75EC7BE0205D07F200325187 /* MainViewController.swift */,
 				75EC7BE1205D07F200325187 /* MainViewController.xib */,
 				75EC7BB2205CF61900325187 /* Assets.xcassets */,
@@ -270,6 +276,7 @@
 				75EC7BB6205CF61900325187 /* LaunchScreen.storyboard in Resources */,
 				7555EDBB206A01BB005FC41A /* RegistUserViewController.xib in Resources */,
 				75EC7BB3205CF61900325187 /* Assets.xcassets in Resources */,
+				7555EDC3206A1FA9005FC41A /* RegistPropertiesCompleteViewController.xib in Resources */,
 				75EC7BE3205D07F200325187 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +306,7 @@
 				7529624520635C8800AE6F24 /* Global.swift in Sources */,
 				7555EDBE206A0DA3005FC41A /* RegistTableCellTableViewCell.swift in Sources */,
 				75EC7BE2205D07F200325187 /* MainViewController.swift in Sources */,
+				7555EDC2206A1FA9005FC41A /* RegistPropertiesCompleteViewController.swift in Sources */,
 				75EC7BDB205CF69C00325187 /* App1ViewController.swift in Sources */,
 				75EC7BAC205CF61900325187 /* AppDelegate.swift in Sources */,
 			);
