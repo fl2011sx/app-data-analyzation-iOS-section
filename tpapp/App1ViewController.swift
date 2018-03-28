@@ -11,10 +11,52 @@ import UIKit
 class App1ViewController: UIViewController {
     
     let phpFile = dataForServer?["ServerURL"] as? String ?? ""
+    let beforeLoginTag = 201
+    let afterLoginTag = 202
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getCountBtnClick(nil)
+    }
+    
+    @IBOutlet weak var loginFiled: UITextField!
+    @IBAction func loginBtnClicked(_ sender: UIButton) {
+        let username = loginFiled.text ?? ""
+        isLoginSucc(username: username) { (isSucc) in
+            if isSucc {
+                self.performSelector(onMainThread: #selector(self.afterLoginSucc), with: nil, waitUntilDone: true)
+            } else {
+                self.performSelector(onMainThread: #selector(self.afterLoginFailed), with: nil, waitUntilDone: true)
+            }
+        }
+    }
+    
+    @objc func afterLoginSucc() {
+        print("login succussful!")
+        loginFailedLabel.isHidden = true
+        for sv in view.subviews {
+            if sv.tag == beforeLoginTag {
+                sv.isHidden = false
+            } else if sv.tag == afterLoginTag {
+                sv.isHidden = true
+            }
+        }
+    }
+    
+    @IBOutlet weak var loginFailedLabel: UILabel!
+    @objc func afterLoginFailed() {
+        loginFailedLabel.isHidden = false
+    }
+    
+    func isLoginSucc(username: String, afterComplete: @escaping (Bool) -> () = {(_) in}) {
+        if phpFile == "" {return}
+        let url = URL(string: phpFile + "?command=login&username=" + username);
+        URLSession.shared.dataTask(with: url!) { (data, res, err) in
+            if data == nil {return}
+            let result = String(data: data!, encoding: String.Encoding.utf8)
+            let isSucc = result != "0"
+            afterComplete(isSucc)
+        }.resume()
     }
     
     @IBAction func BackBtnClicked(_ sender: UIButton) {
@@ -94,6 +136,7 @@ class App1ViewController: UIViewController {
         }
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
+    
     @IBAction func debugTestBtnClick(_ sender: UIButton) {
         changeViewToRegistUserView(tableData: "")
     }
