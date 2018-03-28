@@ -32,7 +32,7 @@ class App1ViewController: UIViewController {
     }
     
     @objc func afterLoginSucc() {
-        print("login succussful!")
+        print("login succussfull!")
         loginFailedLabel.isHidden = true
         for sv in view.subviews {
             if sv.tag == beforeLoginTag {
@@ -102,12 +102,12 @@ class App1ViewController: UIViewController {
         task.resume()
     }
     
-    func doCounting(appid: Int) {
+    func doCounting(appid: Int) { /*
         let time = NSDate().timeIntervalSince1970
         if phpFile == "" {return}
         let url = URL(string: phpFile + "?command=addOperation&operatingtime=\(time)&userid=1&appid=\(appid)")!
         let task = URLSession.shared.dataTask(with: url, completionHandler: defaultCompleteHandler)
-        task.resume()
+        task.resume()*/
     }
     
     
