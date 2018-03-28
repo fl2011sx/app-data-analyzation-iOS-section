@@ -19,8 +19,13 @@ class App1ViewController: UIViewController {
         getCountBtnClick(nil)
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     @IBOutlet weak var loginFiled: UITextField!
     @IBAction func loginBtnClicked(_ sender: UIButton) {
+        loginFiled.resignFirstResponder()
         let username = loginFiled.text ?? ""
         isLoginSucc(username: username) { (isSucc) in
             if isSucc {
