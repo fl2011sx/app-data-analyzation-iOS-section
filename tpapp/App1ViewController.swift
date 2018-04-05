@@ -55,7 +55,7 @@ class App1ViewController: UIViewController {
     
     func isLoginSucc(username: String, afterComplete: @escaping (Bool) -> () = {(_) in}) {
         if phpFile == "" {return}
-        let url = URL(string: phpFile + "?command=login&username=" + username);
+        let url = URL(string: phpFile + "?command=login&username=" + username)
         URLSession.shared.dataTask(with: url!) { (data, res, err) in
             if data == nil {return}
             let result = String(data: data!, encoding: String.Encoding.utf8)
@@ -132,12 +132,15 @@ class App1ViewController: UIViewController {
             let username = value["username"]!
             if self.phpFile == "" {return}
             let url = URL(string: self.phpFile + "?command=addUser&username=" + username)!
-            URLSession.shared.dataTask(with: url, completionHandler: defaultCompleteHandler).resume()
-            for (pro, val) in value {
-                if pro == "username" {continue}
-                let url2 = URL(string: self.phpFile + "?command=addUserPropertyValue&" + pro + "=" + val)!
-                URLSession.shared.dataTask(with: url2, completionHandler: defaultCompleteHandler).resume()
-            }
+            URLSession.shared.dataTask(with: url, completionHandler: {(data, res, err) in
+                if err != nil {return}
+                for (pro, val) in value {
+                    if pro == "username" {continue}
+                    let str = self.phpFile + "?command=addUserPropertyValue&username=" + username + "&property=" + pro + "&value=" + val;
+                    let url2 = URL(string: str)!
+                    URLSession.shared.dataTask(with: url2, completionHandler: defaultCompleteHandler).resume()
+                }
+            }).resume()
         }
         UIApplication.shared.keyWindow?.rootViewController = viewController
     }
