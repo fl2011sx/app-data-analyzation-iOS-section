@@ -10,7 +10,7 @@ import UIKit
 
 class App1ViewController: UIViewController {
     
-    let phpFile = dataForServer?["ServerURL"] as? String ?? ""
+    let phpFile = serverURL
     let beforeLoginTag = 201
     let afterLoginTag = 202
 

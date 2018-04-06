@@ -15,3 +15,4 @@ let defaultCompleteHandler: (Data?, URLResponse?, Error?) -> () = { (data, res, 
     print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue)! as String)
 }
 
+var serverURL = "http://" + (dataForServer!["ServerIPAdress"] as! String) + (dataForServer!["ServerURL"] as! String)

@@ -26,6 +26,12 @@ class MainViewController: UIViewController {
         UIApplication.shared.keyWindow?.rootViewController = vc
     }
     
+    @IBOutlet weak var ipAdressFiled: UITextField!
+    
+    @IBAction func submitBtnClick(_ sender: UIButton) {
+        serverURL = "http://" + ipAdressFiled.text! + (dataForServer!["ServerURL"] as! String)
+    }
+    
     @IBAction func DebugTestBtnClick(_ sender: UIButton) {
         
     }

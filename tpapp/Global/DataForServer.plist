@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>ServerURL</key>
-	<string>http://192.168.1.110/tpappCon/tpappCon.php</string>
+	<string>/tpappCon/tpappCon.php</string>
+	<key>ServerIPAdress</key>
+	<string>192.168.1.188</string>
 </dict>
 </plist>
